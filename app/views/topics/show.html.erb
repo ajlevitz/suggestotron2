@@ -10,5 +10,10 @@
   <%= @topic.description %>
 </p>
 
+<p>
+        <strong><%= pluralize(@topic.votes.count, "vote") %></strong>
+        <%= button_to '+1', votes_path(topic_id: @topic.id), method: :post %>
+</p>
+
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
